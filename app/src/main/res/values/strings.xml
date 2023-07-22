@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RecyclerAndsplash</string>
+    <string name="Name">Name</string>
+    <string name="Rollno">Rollno</string>
+</resources>
