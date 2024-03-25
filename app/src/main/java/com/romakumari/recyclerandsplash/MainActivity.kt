@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract.Data
 import android.renderscript.ScriptGroup.Binding
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
@@ -33,9 +34,8 @@ class MainActivity : AppCompatActivity(), listInterface {
         binding.recylcer.adapter = adapter
         notesDb= NotesDb.getDatabase(this)
 
-        binding.fab.setOnClickListener {
+        binding.fab.setOnClickListener {it: View? ->
             var dialog = Dialog(this)
-
             var dialogBinding = CustomlayoutBinding.inflate(layoutInflater)
             dialog.setContentView(dialogBinding.root)
             dialog.getWindow()?.setLayout(
@@ -135,7 +135,8 @@ class MainActivity : AppCompatActivity(), listInterface {
                 dialogBinding.description.error = "enter Your description "
             } else {
 
-                list.set(position,NotesData(title=dialogBinding.title.text.toString(),
+                list.set(position,NotesData(
+                    title=dialogBinding.title.text.toString(),
                     description=  dialogBinding.description.text.toString()
 
                     )
